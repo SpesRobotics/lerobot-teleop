@@ -5,12 +5,12 @@ Brings a simple integration with [LeRobot](https://github.com/huggingface/lerobo
 ## Getting Started
 
 ```bash
-pip install lerobot-teleop
+pip install lerobot-teleoperator-teleop
 
-python -m lerobot.teleoperate \
-    --robot.type=lerobot_xarm \
+lerobot-teleoperate \
+    --robot.type=lerobot_robot_xarm \
     --robot.id=black \
-    --teleop.type=lerobot_teleop \
+    --teleop.type=lerobot_teleoperator_teleop \
     --fps=60
 ```
 

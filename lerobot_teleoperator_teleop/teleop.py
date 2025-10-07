@@ -1,14 +1,14 @@
 from typing import Any
 from lerobot.teleoperators.teleoperator import Teleoperator
-from . import TeleopConfig
-from teleop import Teleop
+from lerobot_teleoperator_teleop.config_teleop import TeleopConfig
+from teleop import Teleop as SpesTeleop
 import numpy as np
 import threading
 
 
-class LeTeleop(Teleoperator):
+class Teleop(Teleoperator):
     config_class = TeleopConfig
-    name = "teleop"
+    name = "telephone"
 
     def __init__(self, config: TeleopConfig):
         super().__init__(config)
@@ -17,7 +17,7 @@ class LeTeleop(Teleoperator):
         self._calibrated = True
         self._home = False
 
-        self._server = Teleop(host=config.host, port=int(config.port))
+        self._server = SpesTeleop(host=config.host, port=int(config.port))
         self._server.subscribe(self._on_teleop_callback)
         self._gripper_state = 0.0
         self._last_pose = np.eye(4)
